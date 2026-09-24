@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,19 +16,30 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { typedndarray, float32ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Initialize a workspace array for performing a real-valued Fourier transform on a one-dimensional single-precision floating-point ndarray.
+* Initializes a workspace array for performing a real-valued Fourier transform on a one-dimensional single-precision floating-point ndarray.
 *
-* @module @stdlib/fft-base-fftpack-ndarray-float32-rffti
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray containing the length of the sequence to transform.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var Float32Vector = require( '@stdlib/ndarray-vector-float32' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
 * var Slice = require( '@stdlib/slice-ctor' );
 * var slice = require( '@stdlib/ndarray-slice' );
-* var rffti = require( '@stdlib/fft-base-fftpack-ndarray-float32-rffti' );
 *
 * var N = 8;
 * var len = scalar2ndarray( N, {
@@ -49,12 +60,9 @@
 * var factors = slice( w, new Slice( 2*N, ( 2*N ) + 4 ) );
 * // returns <ndarray>[ 8, 2, 2, 4 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function rffti( arrays: [ float32ndarray, typedndarray<number> ] ): float32ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = rffti;
